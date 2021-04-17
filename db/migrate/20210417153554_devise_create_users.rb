@@ -8,9 +8,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string  :encrypted_password, null: false, default: ""
       t.string  :nickname,           null: false, default: ""
       t.string  :instrument,         null: false, default: ""
-      t.integer :prefecture_id,      null: false,
-      t.integer :history_id,         null: false,
-      t.integer :gender_id,          null: false,
+      t.integer :prefecture_id,      null: false
+      t.integer :history_id,         null: false
+      t.integer :gender_id,          null: false
       t.string  :age,                null: false, default: ""
       t.string  :genre,              null: false, default: ""
       t.string  :artist,             null: false, default: ""
