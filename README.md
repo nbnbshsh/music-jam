@@ -1,24 +1,70 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column               |Type     |Options                  |
+|---------------------|---------|-------------------------|
+|email                |string   |null: false,unique: true |
+|encrypted_password   |string   |null: false              |
+|nickname             |string   |null: false              |
+|instrument           |string   |null: false              |
+|prefecture_id        |integer  |null: false              |
+|history_id           |integer  |null: false              |
+|gender_id            |integer  |null: false              |
+|age                  |string   |null: false              |
+|genre                |string   |null: false              |
+|artist               |string   |null: false              |
 
-* Ruby version
+### Association
+has_many: movies
+has_many: directs
 
-* System dependencies
+## moviesテーブル
 
-* Configuration
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|instrument           |string     |null: false                    |
+|text                 |text       |null: false                    |
+|music                |string     |null: false                    |
+|artist               |string     |null: false                    |
+|user                 |references |null: false, foreign_key: true |
 
-* Database creation
+### Association
+belongs_to: user
+has_many: comments
+has_many: likes
 
-* Database initialization
+## dmsテーブル
 
-* How to run the test suite
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|direct               |text       |null: false                    |
+|user                 |references |null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Association
+belongs_to: user
 
-* ...
+## commentsテーブル
+
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|message              |text       |null: false                    |
+|movie                |references |null: false, foreign_key: true |
+
+
+### Association
+belongs_to: movie
+
+## likesテーブル
+
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|like                 |text       |null: false                    |
+|movie                |references |null: false, foreign_key: true |
+
+
+### Association
+belongs_to: movie
+
+
