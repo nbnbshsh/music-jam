@@ -4,14 +4,7 @@
     <%= render 'layouts/error_messages', model: form.object %>
   <% end %>
 
-  <%= form_with model: @movie,url: movies_path, local: true do |f| %>
-
-  <div class="field">
-      <div class="weight-bold-text">
-        動画
-      <span class="indispensable">必須</span>
-    <%= f.file_field :video_top, :accept => 'video/post-btn' %>
-  </div>
+  <%= form_with model: @movie,url: movie_path, local: true do |f| %>
 
   <div class="field">
       <div class="movies-explain">

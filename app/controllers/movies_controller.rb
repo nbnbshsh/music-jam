@@ -21,10 +21,27 @@ class MoviesController < ApplicationController
      @movie=Movie.find(params[:id])
   end
 
+  def edit
+     @movie=Movie.find(params[:id])
+  end
+
+  def update
+    @movie=Movie.find(params[:id])
+     if @movie.update(update_params)
+       redirect_to movie_path(@movie.id)
+     else
+       render :edit
+     end
+  end
+
   private
 
   def movie_params
      params.require(:movie).permit(:text,:instrument,:music,:artist,:video_top).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:movie).permit(:text,:instrument,:music,:artist).merge(user_id: current_user.id)
   end
 
 
