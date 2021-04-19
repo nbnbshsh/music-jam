@@ -12,7 +12,8 @@ class User < ApplicationRecord
     validates :age, format:{with: /\A[0-9]+\z/,message:'半角数字のみで入力してください'}
     validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/, message: '全て半角で英数字を混ぜて設定してください' }
   end
-
+    
+    has_many :movies
     
 
 end

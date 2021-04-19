@@ -1,0 +1,15 @@
+<div class="contents row">
+<%= video_tag(@movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
+<p><%= @movie.text %></p>
+  <span class="name">
+    <a href="/users/<%= @movie.user.id %>">
+      <span>投稿者</span><%= @movie.user.nickname %>
+    </a>
+  </span>
+  <br>
+  <span>楽器：</span><%= @movie.instrument %>
+  <br>
+    <span>アーティスト名：</span><%= @movie.artist %>
+    <span>曲名：</span><%= @movie.music %>
+</div>
+</div>
