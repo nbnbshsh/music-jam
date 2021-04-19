@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
       @movie.save
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,6 +32,12 @@ class MoviesController < ApplicationController
      else
        render :edit
      end
+  end
+
+  def destroy
+    @movie=Movie.find(params[:id])
+    @movie.destroy
+    redirect_to root_path
   end
 
   private
