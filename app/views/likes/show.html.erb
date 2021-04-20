@@ -1,0 +1,35 @@
+
+<%if @likes[0] !=nil %>
+
+  <% @likes.each do |like| %>
+    <%= video_tag(like.movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
+     <p><%= like.movie.text %></p>
+     <span class="name">
+      <a href="/users/<%= like.movie.user.id %>">
+        <span>投稿者</span><%= like.movie.user.nickname %>
+      </a>
+      </span>
+      <br>
+        <span>楽器：</span><%= like.movie.instrument %>
+      <br>
+      <span>アーティスト名：</span><%= like.movie.artist %>
+      <span>曲名：</span><%= like.movie.music %>
+
+    <td>
+      <% if current_user.already_liked?(like.movie)%>
+        <%= link_to movie_likes_path(like.movie),method: :delete do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to movie_likes_path(like.movie),method: :post do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <%end%>
+      <%= like.movie.likes.count %>
+    <td>
+  <% end %>
+      <%= link_to 'ホームに戻る', root_path %>
+<% else %>
+    <p>いいねした投稿はございません。</p>
+    <%= link_to 'ホームに戻る', root_path %>
+<% end %>
