@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:new,:create,:show,:edit,:update,:destroy]
 
+  resources :users, only: [:show,:edit,:update]
+
 
 end
