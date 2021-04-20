@@ -16,8 +16,10 @@
 |artist               |string   |null: false              |
 
 ### Association
-has_many: movies
-has_many: directs
+has_many :movies
+has_many :directs
+has_many :comments
+has_many :user
 
 ## moviesテーブル
 
@@ -30,9 +32,9 @@ has_many: directs
 |user                 |references |null: false, foreign_key: true |
 
 ### Association
-belongs_to: user
-has_many: comments
-has_many: likes
+belongs_to :user
+has_many :comments
+has_many :likes
 
 ## dmsテーブル
 
@@ -43,28 +45,30 @@ has_many: likes
 
 
 ### Association
-belongs_to: user
+belongs_to :user
 
 ## commentsテーブル
 
 |Column               |Type       |Options                        |
 |---------------------|-----------|-------------------------------|
-|message              |text       |null: false                    |
+|memo                 |text       |null: false                    |
 |movie                |references |null: false, foreign_key: true |
 
 
 ### Association
-belongs_to: movie
+belongs_to :movie
+belongs_to :user
 
 ## likesテーブル
 
 |Column               |Type       |Options                        |
 |---------------------|-----------|-------------------------------|
-|like                 |text       |null: false                    |
 |movie                |references |null: false, foreign_key: true |
+|user                 |references |null: false, foreign_key: true |
 
 
 ### Association
-belongs_to: movie
+belongs_to :movie
+belongs_to :user
 
 

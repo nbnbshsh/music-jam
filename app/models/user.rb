@@ -19,5 +19,10 @@ class User < ApplicationRecord
     belongs_to :prefecture
     belongs_to :history
     belongs_to :gender
+    has_many :comments
+    has_many :likes, dependent: :destroy
 
+      def already_liked?(movie)
+        self.likes.exists?(movie_id: movie.id)
+      end
 end
