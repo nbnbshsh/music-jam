@@ -1,0 +1,65 @@
+   
+   <%= form_for(current_user) do |f| %>
+
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_area :nickname,autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instrument %><br />
+    <%= f.text_area :instrument, autocomplete: "instrument" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :prefecture_id %><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :history_id %><br />
+    <%= f.collection_select(:history_id, History.all, :id, :name, {}, {class:"select-box", id:"user-history"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender_id %><br />
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"user-gender"}) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_area :age, autocomplete: "age" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.text_area :genre, autocomplete: "genre" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :artist %><br />
+    <%= f.text_area :artist, autocomplete: "artist" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>

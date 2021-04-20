@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +16,8 @@ class User < ApplicationRecord
   end
     
     has_many :movies
-    
+    belongs_to :prefecture
+    belongs_to :history
+    belongs_to :gender
 
 end

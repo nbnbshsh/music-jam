@@ -1,0 +1,32 @@
+<div class="user_show">
+  <br>
+    <span>ニックネーム：</span><%= @user.nickname %>
+  <br>
+    <span>活動エリア：</span><%= @user.prefecture.name %>
+  <br>
+    <span>楽器歴：</span><%= @user.history.name %>
+  <br>
+    <span>性別：</span><%= @user.gender.name %>
+  <br>
+    <span>年齢：</span><%= @user.age %>
+  <br>
+    <span>好きなジャンル：</span><%= @user.genre %>
+  <br>
+    <span>好きなアーティスト：</span><%= @user.artist %>
+  <br>
+</div>
+     <ul class="more_list">
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <li>
+            <%= link_to '＜ユーザー情報を編集＞', edit_user_path(@user.id), method: :get %>
+          </li>
+        <% end %> 
+     </ul>
+
+
+<div class="contents row">
+  <p><%= @user.nickname %>さんの投稿一覧</p>
+  <% @movies.each do |movie| %>
+    <%= render partial:"movies/movie",locals: {movie: movie}%>
+  <% end %>
+</div>
