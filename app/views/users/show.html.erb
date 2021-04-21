@@ -15,6 +15,12 @@
     <span>好きなアーティスト：</span><%= @user.artist %>
   <br>
 </div>
+
+<% if current_user != @user %>
+  <%= link_to 'DMを送信する', chat_path(@user.id) %>
+<% end %> 
+
+
      <ul class="more_list">
         <% if user_signed_in? && current_user.id == @user.id %>
           <li>
@@ -22,7 +28,6 @@
           </li>
         <% end %> 
      </ul>
-
 
 <div class="contents row">
   <p><%= @user.nickname %>さんの投稿一覧</p>

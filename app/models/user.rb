@@ -22,6 +22,10 @@ class User < ApplicationRecord
     has_many :comments
     has_many :likes, dependent: :destroy
 
+    has_many :user_rooms
+    has_many :chats
+    has_many :rooms, through: :user_rooms
+
       def already_liked?(movie)
         self.likes.exists?(movie_id: movie.id)
       end

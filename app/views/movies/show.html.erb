@@ -11,6 +11,9 @@
   <br>
     <span>アーティスト名：</span><%= @movie.artist %>
     <span>曲名：</span><%= @movie.music %>
+
+    <%if user_signed_in? %>
+
     <% if current_user.already_liked?(@movie) %>
       <%= link_to movie_likes_path(@movie),method: :delete do %>
         <i class="fas fa-heart"></i>
@@ -21,7 +24,11 @@
       <% end %>
     <% end %>
     <%= @movie.likes.count %>
-
+    <% else %>
+      <i class="far fa-heart"></i>
+      <%= @movie.likes.count %>
+     <% end %>
+     
    <div class="more">
       <%# <span><%= image_tag 'arrow_top.png' %><%# </span> %>
       <ul class="more_list">

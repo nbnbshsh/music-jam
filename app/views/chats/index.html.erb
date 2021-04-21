@@ -1,0 +1,7 @@
+
+<p>ダイレクトメッセージ相手 一覧</p>
+<% @rooms.each do|room| %>
+ <% room.users.each do |user| %>
+  <%=user.name%>
+  <%end%>
+  <%end%>
