@@ -67,3 +67,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 
 gem 'ransack'
+
+gem 'jquery-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'

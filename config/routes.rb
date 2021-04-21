@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show,:edit,:update]
 
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  get '/chats', to: 'chats#index'
+  resources :chats, only: [:create]
+
 end

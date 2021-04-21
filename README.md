@@ -36,11 +36,11 @@ belongs_to :user
 has_many :comments
 has_many :likes
 
-## dmsテーブル
+## roomsテーブル
 
 |Column               |Type       |Options                        |
 |---------------------|-----------|-------------------------------|
-|direct               |text       |null: false                    |
+|message              |text       |null: false                    |
 |user                 |references |null: false, foreign_key: true |
 
 
