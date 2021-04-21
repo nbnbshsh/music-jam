@@ -1,6 +1,6 @@
 <%# <div class="content_post" style="background-image"> %>
   <%= video_tag(movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
-<p><%= movie.text %></p>
+  <p><%= movie.text %></p>
   <span class="name">
     <a href="/users/<%= movie.user.id %>">
       <span>投稿者</span><%= movie.user.nickname %>
