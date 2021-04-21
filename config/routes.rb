@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   get 'movies/index'
   root to: "movies#index"
 
@@ -22,5 +22,11 @@ Rails.application.routes.draw do
   get 'chat/:id' => 'chats#show', as: 'chat'
   get '/chats', to: 'chats#index'
   resources :chats, only: [:create]
+
+  resources :users do
+     resource :follow
+     resources :followings
+     resources :followers
+  end
 
 end
