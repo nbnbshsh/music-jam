@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :search_movie, only: [:index,:search]
+
   def index
     @movies=Movie.all
   end
@@ -42,7 +44,15 @@ class MoviesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @results = @m.result
+  end
+
   private
+
+  def search_movie
+    @m=Movie.ransack(params[:q])
+  end
 
   def movie_params
      params.require(:movie).permit(:text,:instrument,:music,:artist,:video_top).merge(user_id: current_user.id)
