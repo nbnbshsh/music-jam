@@ -1,49 +1,42 @@
-<%# <div class="content_post" style="background-image"> %>
-  <%= video_tag(movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
-  <p><%= movie.text %></p>
-  <span class="name">
-    <a href="/users/<%= movie.user.id %>">
-      <span>投稿者</span><%= movie.user.nickname %>
-    </a>
-  </span>
-  <br>
-  <span>楽器：</span><%= movie.instrument %>
-  <br>
-    <span>アーティスト名：</span><%= movie.artist %>
-    <span>曲名：</span><%= movie.music %>
+
+<div class="card mb-4">
+     <span class="name">
+         <a href="/users/<%= movie.user.id %>">
+           <span>投稿者</span><%= movie.user.nickname %>
+         </a>
+     </span>
+    <div class="card-movie">
+      <figure class="movie">
+        <%= video_tag(movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
+      </figure>
+    </div>
+    <%= link_to '詳細', movie_path(movie.id), method: :get %>
 
     <%if user_signed_in? %>
-    <td>
-      <% if current_user.already_liked?(movie)%>
-        <%= link_to movie_likes_path(movie),method: :delete do %>
-        <i class="fas fa-heart"></i>
-        <% end %>
+      <td>
+        <% if current_user.already_liked?(movie)%>
+          <%= link_to movie_likes_path(movie),method: :delete do %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to movie_likes_path(movie),method: :post do %>
+          <i class="far fa-heart"></i>
+          <% end %>
+        <%end%>
+        <%= movie.likes.count %>
+      <td>
       <% else %>
-        <%= link_to movie_likes_path(movie),method: :post do %>
-        <i class="far fa-heart"></i>
-        <% end %>
-      <%end%>
+      <i class="far fa-heart"></i>
       <%= movie.likes.count %>
-    <td>
-    <% else %>
-    <i class="far fa-heart"></i>
-    <%= movie.likes.count %>
     <%end%>
+    
 
-  <div class="more">
-   <%# <span><%= image_tag 'arrow_top.png' %><%# </span>%>
-     <ul class="more_list">
-       <li>
-        <%= link_to '詳細', movie_path(movie.id), method: :get %>
-       </li> 
-      <%# <% if user_signed_in? && current_user.id == tweet.user_id %> 
-         <%# <li>
-           <%= link_to '編集', edit_movie_path(movie.id), method: :get %>
-         <%# </li>  %> 
-        <%# <li> %>
-          <%# <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
-        <%# </li>
-      <% end %>
-     </ul>  
+  <div class="card-content">
+    <%= movie.text %>
+    <br>
+      <span>楽器：</span><%= movie.instrument %>
+    <br>
+      <span>アーティスト名：</span><%= movie.artist %>
+      <span>曲名：</span><%= movie.music %>
   </div>
-  
+</div>

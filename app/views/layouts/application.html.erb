@@ -5,12 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a172a2ef25.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <% link_to 'MusicJam', [:root],class: 'navbar-item' %>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="coloumn is-5">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
