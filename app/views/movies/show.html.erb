@@ -1,18 +1,15 @@
-<div class="contents row">
-<%= video_tag(@movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
-<p><%= @movie.text %></p>
+<div class="card mb-4">
   <span class="name">
-    <a href="/users/<%= @movie.user.id %>">
-      <span>投稿者</span><%= @movie.user.nickname %>
-    </a>
+      <a href="/users/<%= @movie.user.id %>">
+        <span>投稿者</span><%= @movie.user.nickname %>
+      </a>
   </span>
-  <br>
-  <span>楽器：</span><%= @movie.instrument %>
-  <br>
-    <span>アーティスト名：</span><%= @movie.artist %>
-    <span>曲名：</span><%= @movie.music %>
-
-    <%if user_signed_in? %>
+  <div class="card-movie">
+      <figure class="movie">
+        <%= video_tag(@movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
+      </figure>
+  </div>
+  <%if user_signed_in? %>
 
     <% if current_user.already_liked?(@movie) %>
       <%= link_to movie_likes_path(@movie),method: :delete do %>
@@ -24,30 +21,43 @@
       <% end %>
     <% end %>
     <%= @movie.likes.count %>
-    <% else %>
-      <i class="far fa-heart"></i>
-      <%= @movie.likes.count %>
-     <% end %>
-     
-   <div class="more">
-      <%# <span><%= image_tag 'arrow_top.png' %><%# </span> %>
-      <ul class="more_list">
-        <% if user_signed_in? && current_user.id == @movie.user_id %>
-          <li>
-            <%= link_to '編集', edit_movie_path(@movie.id), method: :get %>
-          </li>
-          <li> 
-            <%= link_to '削除', movie_path(@movie.id), method: :delete %> 
-          </li>
-        <% end %> 
-      </ul>
-    </div>
+  <% else %>
+     <i class="far fa-heart"></i>
+     <%= @movie.likes.count %>
+  <% end %>
 
+  <div class="more">
+   <ul class="more_list">
+     <% if user_signed_in? && current_user.id == @movie.user_id %>
+       <li>
+         <%= link_to '編集', edit_movie_path(@movie.id), method: :get %>
+       </li>
+       <li> 
+         <%= link_to '削除', movie_path(@movie.id), method: :delete %> 
+       </li>
+     <% end %> 
+   </ul>
+  </div>
+  
+  <div class="card-content">
+    <p><%= @movie.text %></p>
+    
+    <br>
+    <span>楽器：</span><%= @movie.instrument %>
+    <br>
+      <span>アーティスト名：</span><%= @movie.artist %>
+      <span>曲名：</span><%= @movie.music %>
+
+      
+       
+     
+  </div>
+</div>
     <div class="container">
       <% if user_signed_in? %>
         <%= form_with(model: [@movie, @comment], local: true) do |form| %>
           <%= form.text_area :memo, placeholder: "コメントする", rows: "2" %>
-          <%= form.submit "SEND" %>
+          <%= form.submit "SEND" ,class:"button is-primary"%>
         <% end %>
       <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -70,4 +80,4 @@
       
     </div>
 
-</div>
+

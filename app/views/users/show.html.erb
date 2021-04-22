@@ -32,7 +32,7 @@
 </div>
 
 <% if current_user != @user %>
-  <%= link_to 'DMを送信する', chat_path(@user.id) %>
+  <%= link_to 'DMを送信する', user_chat_path(@user.id) %>
 <% end %> 
 
 
