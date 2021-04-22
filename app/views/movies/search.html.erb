@@ -3,21 +3,18 @@
 </h1>
 <% if @results !=nil %>
    <% @results.each do |result| %>
-   
-   <%= video_tag(result.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
-   <p><%= result.text %></p>
-  <span class="name">
-    <a href="/users/<%= result.user.id %>">
-      <span>投稿者</span><%= result.user.nickname %>
-    </a>
-  </span>
-  <br>
-  <span>楽器：</span><%= result.instrument %>
-  <br>
-    <span>アーティスト名：</span><%= result.artist %>
-    <span>曲名：</span><%= result.music %>
-
-    <td>
+   <div class="cards m-2">
+     <span class="name">
+      <a href="/users/<%= result.user.id %>">
+        <span>投稿者</span><%= result.user.nickname %>
+      </a>
+      </span>
+      <div class="card-movie">
+        <figure class="movie">
+          <%= video_tag(result.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
+        </figure>
+      </div>
+      <td>
       <% if current_user.already_liked?(result)%>
         <%= link_to movie_likes_path(result),method: :delete do %>
         <i class="fas fa-heart"></i>
@@ -28,10 +25,19 @@
         <% end %>
       <%end%>
       <%= result.likes.count %>
-    <td>
-    <%end%>
 
- <% else %>
-該当する商品はありません
-<%= link_to "トップページへ戻る", root_path%>
- <% end %>
+      <div class="card-content">
+        <p><%= result.text %></p>
+        <br>
+        <span>楽器：</span><%= result.instrument %>
+        <br>
+        <span>アーティスト名：</span><%= result.artist %>
+        <span>曲名：</span><%= result.music %>
+      </div>
+  </div>
+  <%end%>
+
+<% else %>
+  該当する投稿はありません
+  <%= link_to "トップページへ戻る", root_path%>
+<% end %>
