@@ -1,3 +1,7 @@
+<div calss="following-page">
+<a><%=@user.nickname%><span>さんのフォロワー一覧</span></a>
+</div>
+
 <% @followings.each do |user| %>
 <div>
   <%= link_to user.nickname, [user] %>

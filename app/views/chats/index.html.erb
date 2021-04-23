@@ -1,7 +1,8 @@
 
 <p>ダイレクトメッセージ相手 一覧</p>
-<% @users.each do|user| %>
- <% user.rooms.each do |room| %>
-  <%=user.name%>
-  <%end%>
-  <%end%>
+
+<% @chat_user.each do |dm_user| %>
+  <%= dm_user.nickname%>
+<% end %>
+
+

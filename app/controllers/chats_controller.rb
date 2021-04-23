@@ -27,6 +27,11 @@ class ChatsController < ApplicationController
 
   def index
     @rooms = Room.joins(:user_rooms).where("user_rooms.user_id =?",current_user.id)
+    user_room=UserRoom.find_by(user_id: params[:user_id])
+    chat_user_ids=UserRoom.where(room_id: user_room.room_id).where.not(user_id: params[:user_id])
+    chat_user_ids.each do |chat_user_id| 
+      @chat_user=User.where(id: chat_user_id.user_id)
+    end
   end
 
   private
