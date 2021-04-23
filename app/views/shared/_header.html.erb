@@ -1,4 +1,3 @@
-<header class='top-page-header'>
     <div class="tabs">
       <% if user_signed_in? %>
       <ul>
@@ -8,9 +7,9 @@
         <li>
           <%= link_to 'フォロワー', [current_user,:followers] ,class:"button m-1"%>
         </li>
-      <ul>
+      </ul>
       <% end %>
-
+    
       <ul class='lists-right'>
         <% if user_signed_in? %>
          <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname",class:"button m-1"%></li> 
@@ -20,5 +19,7 @@
         <li><%= link_to '新規登録',  new_user_registration_path , class: "sign-up" ,class:"button m-1"%></li>
         <% end %>
       </ul>
+  
+
+    
     </div>
-</header>

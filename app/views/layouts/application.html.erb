@@ -1,21 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <title>MusicJam</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a172a2ef25.js" crossorigin="anonymous"></script>
+    <style>
+    body{
+      background-image: url("/images/blue.jpeg");
+      background-repeat:repeat;
+      background-size: 100%;
+    }
+    footer{
+      background-color: #99FFCC		;
+      position:fixed;
+      bottom: 0px;
+      left:0px;
+      width:100vw;
+    }
+    .header{
+      width:100vw;
+      background-color: #99FFCC	;
+      position:fixed;
+      top: 0px;
+      right: 0px;
+      z-index:1;
+    }
+    .tabs ul{
+      flex-grow: 0;
+      border-bottom-width: 0px;
+    }
+
+    .jam_top {
+      cursor: pointer;
+      justify-content: center;
+      display: flex;
+      font-size: 25px;
+    }
+    .card {
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+    color: #4a4a4a;
+    max-width: 100%;
+    position: relative;
+    margin-top:60px;
+    }
+
+    .like_lists {
+    font-size: 25px;
+    }
+    
+    </style>
   </head>
 
   <body>
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <% link_to 'MusicJam', [:root],class: 'navbar-item' %>
-      </div>
-    </nav>
+
+    
 
     <section class="section">
       <div class="columns is-centered">
@@ -24,5 +70,6 @@
         </div>
       </div>
     </section>
+_
   </body>
 </html>

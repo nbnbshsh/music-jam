@@ -1,15 +1,21 @@
+        <header class='header'>
+        <%= link_to 'MusicJam', [:root],class: 'jam_top' %>
+          <%= render "shared/header"%>
+        </header>
+     
+    
+      <%# <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %> 
+        <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> 
+        <%# <%= form.submit "検索",class: "search-btn" %> 
+      <%# <% end %> 
+          <div class="contents row">
+            <%= movie_lists(@movies)%>
+          </div>
+        
+        <footer>
+          <%= render "shared/footer"%>
+        </footer>
+    
 
-<%= render "shared/header"%>
-<%# <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %> 
-  <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> 
-  <%# <%= form.submit "検索",class: "search-btn" %> 
-<%# <% end %> 
 
 
-   <div class="contents row">
-    <%= movie_lists(@movies)%>
-  </div>
-
-
-
-<%= render "shared/footer"%>
