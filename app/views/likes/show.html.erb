@@ -18,6 +18,9 @@
         </figure>
     </div>
 
+    <%= link_to '詳細', movie_path(like.movie_id), method: :get ,class:"button"%>
+    
+    <div class=likes_class>
     <% if user_signed_in? %>
       <td>
       <% if current_user.already_liked?(like.movie)%>
@@ -35,6 +38,7 @@
       <i class="far fa-heart"></i>
       <%= @movie.likes.count %>
     <% end %>
+    </div>
 
     <div class="card-content">
       <p><%= like.movie.text %></p>

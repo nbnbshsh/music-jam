@@ -1,3 +1,7 @@
+<h1 class="title-list">
+投稿詳細
+</h1>
+
 <div class="card m-2">
   <span class="name">
       <a href="/users/<%= @movie.user.id %>">
@@ -9,8 +13,23 @@
         <%= video_tag(@movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
       </figure>
   </div>
-  <%if user_signed_in? %>
+   
+    <div class="tabs more_list">
+   <ul>
+     <% if user_signed_in? && current_user.id == @movie.user_id %>
+       <li>
+         <%= link_to '編集', edit_movie_path(@movie.id), method: :get, class: "button"%>
+       </li>
+       <li> 
+         <%= link_to '削除', movie_path(@movie.id), method: :delete, class: "button"%> 
+       </li>
+     <% end %> 
+   </ul>
+  </div>
 
+  <%if user_signed_in? %>
+    
+    <div class=likes_class>
     <% if current_user.already_liked?(@movie) %>
       <%= link_to movie_likes_path(@movie),method: :delete do %>
         <i class="fas fa-heart"></i>
@@ -25,19 +44,9 @@
      <i class="far fa-heart"></i>
      <%= @movie.likes.count %>
   <% end %>
-
-  <div class="more">
-   <ul class="more_list">
-     <% if user_signed_in? && current_user.id == @movie.user_id %>
-       <li>
-         <%= link_to '編集', edit_movie_path(@movie.id), method: :get %>
-       </li>
-       <li> 
-         <%= link_to '削除', movie_path(@movie.id), method: :delete %> 
-       </li>
-     <% end %> 
-   </ul>
   </div>
+
+  
   
   <div class="card-content">
     <p><%= @movie.text %></p>
@@ -70,12 +79,13 @@
       <p>
         <strong><%= link_to comment.user.nickname,"/users/#{comment.user_id}" %>:</strong>
         <%=comment.memo %>
-      </p>
-       <% if user_signed_in? && current_user.id == comment.user_id %>
-      <a rel="nofollow" data-method="delete" href="/movies/<%=comment.movie_id%>/comments/<%=comment.id%>">削除</a>
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+      <a class="delete_comment_btn" rel="nofollow" data-method="delete" href="/movies/<%=comment.movie_id%>/comments/<%=comment.id%>">＜削除＞</a>
       <%# <%= link_to '削除', movie_comment_path(comment.movie_id), method: :delete %> 
       <%# なぜかcommentのID=4しか渡せないため不使用 %>
       <% end %>
+      </p>
+       
       <% end %>
       
     </div>
