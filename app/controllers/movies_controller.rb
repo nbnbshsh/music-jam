@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :search_movie, only: [:index,:search]
 
   def index
-    @movies=Movie.all
+    @movies=Movie.all.order(created_at: :desc)
     @users=User.all
   end
     

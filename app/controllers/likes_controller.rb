@@ -6,15 +6,18 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @movie=Movie.find(params[:movie_id])
+    @movie = Movie.find(params[:movie_id])
     @like = current_user.likes.find_by(movie_id: @movie.id)
     @like.destroy
-    redirect_back(fallback_location: root_path)
+     redirect_back(fallback_location: root_path)
   end
 
 
   def show
     @likes = current_user.likes.all
   end
+
+  private
+
 
 end

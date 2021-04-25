@@ -5,7 +5,7 @@
 <%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
 
 
-<div class="card m-4">
+<div class="card">
   <span class="name">
       <a href="/users/<%= @movie.user.id %>">
         <span>投稿者</span><%= @movie.user.nickname %>
@@ -30,24 +30,23 @@
    </ul>
   </div>
 
-  <%if user_signed_in? %>
-    
-    <div class=likes_class>
-    <% if current_user.already_liked?(@movie) %>
-      <%= link_to movie_likes_path(@movie),method: :delete do %>
-        <i class="fas fa-heart"></i>
-      <% end %>
-    <% else %>
-      <%= link_to movie_likes_path(@movie),method: :create do %>
-        <i class="far fa-heart"></i>
-      <% end %>
+  <div class=likes_class>
+      <%if user_signed_in? %>
+  <% if current_user.already_liked?(@movie)%>
+    <%= link_to movie_likes_path(@movie),method: :delete do %>
+    <i class="fas fa-heart"></i>
     <% end %>
-    <%= @movie.likes.count %>
   <% else %>
-     <i class="far fa-heart"></i>
-     <%= @movie.likes.count %>
-  <% end %>
-  </div>
+    <%= link_to movie_likes_path(@movie),method: :post do %>
+    <i class="far fa-heart"></i>
+    <% end %>
+  <%end%>
+  <%= @movie.likes.count %>
+  <% else %>
+      <i class="far fa-heart"></i>
+      <%= @movie.likes.count %>
+    <%end%>
+    </div>
 
   
   
@@ -64,7 +63,7 @@
   </div>
 
 </div>
-    <div class="container">
+    <div class="card container mt-3">
       <% if user_signed_in? %>
         <%= form_with(model: [@movie, @comment], local: true) do |form| %>
           <%= form.text_area :memo, placeholder: "コメントする", rows: "2" %>
@@ -73,7 +72,7 @@
       <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
       <% end %>
-    </div>
+    
 
     <div class="comments">
       <h4>コメント一覧</h4>
@@ -91,5 +90,8 @@
       <% end %>
       
     </div>
+    </div>
+
+    
 
 

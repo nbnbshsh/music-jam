@@ -10,6 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a172a2ef25.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
     body{
       background-image: url("/images/blue.jpeg");
@@ -52,6 +53,7 @@
     max-width: 100%;
     position: relative;
     margin-top:60px;
+    max-width: 40%;
     }
 
     .like_lists {
@@ -106,6 +108,16 @@
     z-index: 1;
     right: 10%;
     top: 15px;
+    }
+
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: auto;
+    padding: 0;
+}
+
+    .card.container.mt-3 {
+    padding: 15px;
+    max-width: 40%;
     }
     
     </style>
