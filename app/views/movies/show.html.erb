@@ -2,7 +2,10 @@
 投稿詳細
 </h1>
 
-<div class="card m-2">
+<%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
+
+
+<div class="card m-4">
   <span class="name">
       <a href="/users/<%= @movie.user.id %>">
         <span>投稿者</span><%= @movie.user.nickname %>
@@ -49,18 +52,17 @@
   
   
   <div class="card-content">
-    <p><%= @movie.text %></p>
+    <p>#<%= @movie.text %></p>
     
     <br>
     <span>楽器：</span><%= @movie.instrument %>
     <br>
       <span>アーティスト名：</span><%= @movie.artist %>
+    <br>
       <span>曲名：</span><%= @movie.music %>
-
-      
-       
-     
+    <br>
   </div>
+
 </div>
     <div class="container">
       <% if user_signed_in? %>

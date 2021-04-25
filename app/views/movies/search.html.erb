@@ -1,6 +1,10 @@
 <h1 class="title-list">
 検索結果
 </h1>
+
+<%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
+
+
 <% if @results !=nil %>
    <% @results.each do |result| %>
    <div class="cards m-2">
@@ -35,6 +39,7 @@
         <span>楽器：</span><%= result.instrument %>
         <br>
         <span>アーティスト名：</span><%= result.artist %>
+        <br>
         <span>曲名：</span><%= result.music %>
       </div>
   </div>
