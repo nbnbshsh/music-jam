@@ -1,3 +1,7 @@
+  <h1 class="title-list">
+  <%= @user.nickname%>さんの個人ページ
+  </h1>
+  
   <div class="tabs">
   <ul>
     <li>
@@ -21,7 +25,7 @@
   </ul>
   </div>
 
-<div class="user_show">
+<div class="card user_show pl-4">
   <br>
     <span>ニックネーム：</span><%= @user.nickname %>
   <br>
@@ -37,23 +41,31 @@
   <br>
     <span>好きなアーティスト：</span><%= @user.artist %>
   <br>
-</div>
+  <br>
 
-<% if current_user != @user %>
+  <% if current_user != @user %>
   <%= link_to 'DMを送信する', user_chat_path(@user.id) %>
-<% end %> 
+  <% end %> 
 
 
      <ul class="more_list">
         <% if user_signed_in? && current_user.id == @user.id %>
           <li>
-            <%= link_to '＜ユーザー情報を編集＞', edit_user_path(@user.id), method: :get %>
+            <%= link_to '個人ページ編集', edit_user_path(@user.id), method: :get ,class:"button" %>
           </li>
         <% end %> 
      </ul>
+     <br>
+     <br>
+
+</div>
+
+
 
 <div class="contents row">
+  <div class="user_post_list mt-5">
   <p><%= @user.nickname %>さんの投稿一覧</p>
+  </div>
   <% @movies.each do |movie| %>
     <%= render partial:"movies/movie",locals: {movie: movie}%>
   <% end %>

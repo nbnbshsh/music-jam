@@ -18,7 +18,7 @@
   
   <div class="search-btn-class">
    <%= search_form_for @m, url: search_movies_path  do |f| %>
-      <%= f.label :instrument_eq, '楽器名'%>
+      <%= f.label :instrument_eq, '楽器名',class:"intrument_label"%>
       <%= f.collection_select :instrument_eq, @movies, :instrument,:instrument, include_blank: '指定なし'%>
       <%=f.submit '検索',class:"button is-primary" %>
     <% end %>

@@ -1,3 +1,7 @@
+<h1 class="title-list">
+投稿編集画面
+</h1>
+
 <%# 画像投稿のビュー %>
  <%# バリデーションエラー表示 %>
   <%= form_with(model: @movie,local:true) do |form |%>
@@ -7,36 +11,38 @@
   <%= form_with model: @movie,url: movie_path, local: true do |f| %>
 
   <div class="field">
-      <div class="movies-explain">
+      
         <div class="weight-bold-text">
-          コメント
-          <span class="indispensable">必須</span>
+          
+          <span class="indispensable">コメント *必須</span>
         </div>
-        <%= f.text_area :text, class:"movies-text", id:"movies-comment", placeholder:"コメント（必須 1,00文字まで記載可）" ,rows:"1" ,maxlength:"100" %>
-      </div>
+        <%= f.text_area :text, class:"movies-text", id:"movies-comment", placeholder:"コメント（必須 100文字まで記載可）" ,maxlength:"100" %>
+     
       <div class="weight-bold-text">
-        楽器名
-        <span class="indispensable">必須</span>
+        
+        <span class="indispensable">楽器名 *必須</span>
       </div>
       <%= f.text_area :instrument, class:"movies-text", id:"movies-instrument", placeholder:"楽器名（必須 アカペラでもOK)", maxlength:"30" %>
-    </div>
+    
     <div class="weight-bold-text">
-        曲名
-        <span class="indispensable">任意</span>
+        
+        <span class="indispensable">曲名 (任意)</span>
       </div>
       <%= f.text_area :music, class:"movies-text", id:"movies-music", maxlength:"30" %>
-    </div>
+  
 
     <div class="weight-bold-text">
-        アーティスト名
-        <span class="indispensable">任意</span>
+        
+        <span class="indispensable">アーティスト名 (任意)</span>
       </div>
       <%= f.text_area :artist, class:"movies-text", id:"movies-artist", maxlength:"30" %>
-    </div>
+    
 
   <div class="post-btn-contents">
     <%= f.submit "投稿する" ,class:"post-btn" %>
     <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+
   </div>
 <% end %>
 

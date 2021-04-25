@@ -1,9 +1,11 @@
 <div calss="follower-page">
+<h1 class="title-list">
 <a><%=@user.nickname%><span>さんのフォロワー一覧</span></a>
+</h1>
 </div>
 
 <% @followers.each do |user| %>
 <div>
-  <%= link_to user.nickname, [user] %>
+  <%= link_to user.nickname, [user],class:"follows_name_class" %>
 </div>
 <% end %>
