@@ -7,7 +7,7 @@
 
 <% if @results !=nil %>
    <% @results.each do |result| %>
-   <div class="cards m-2">
+   <div class="card">
      <span class="name">
       <a href="/users/<%= result.user.id %>">
         <span>投稿者</span><%= result.user.nickname %>
@@ -34,7 +34,7 @@
       <div class=likes_class>
 
       <div class="card-content">
-        <p><%= result.text %></p>
+        <p>#<%= result.text %></p>
         <br>
         <span>楽器：</span><%= result.instrument %>
         <br>

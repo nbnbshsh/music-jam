@@ -14,7 +14,7 @@ class LikesController < ApplicationController
 
 
   def show
-    @likes = current_user.likes.all
+    @likes = current_user.likes.all.order(created_at: :desc)
   end
 
   private

@@ -6,7 +6,7 @@
 
 <%if @likes[0] !=nil %>
   <% @likes.each do |like| %>
-  <div class="card m-2">
+  <div class="card">
 
     <span class="name">
       <a href="/users/<%= like.movie.user.id %>">

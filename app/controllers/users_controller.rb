@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     @user=user
-    @movies = user.movies
+    @movies = user.movies.order(created_at: :desc)
   end
 
   def edit

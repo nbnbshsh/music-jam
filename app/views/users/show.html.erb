@@ -47,7 +47,7 @@
   <br>
 
   <% if current_user != @user %>
-  <%= link_to 'DMを送信する', user_chat_path(@user.id) %>
+  <%= link_to 'DMを送信する', user_chat_path(@user.id) ,class:"button"%>
   <% end %> 
 
 
@@ -66,7 +66,7 @@
 
 
 <div class="contents row">
-  <div class="user_post_list mt-5">
+  <div class="user_post_list">
   <p><%= @user.nickname %>さんの投稿一覧</p>
   </div>
   <% @movies.each do |movie| %>
