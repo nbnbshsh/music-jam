@@ -12,6 +12,7 @@
         動画
       <span class="indispensable">必須</span>
     <%= f.file_field :video_top, :accept => 'video/post-btn' %>
+    <div id='video_list',class="video_size"></div>
   </div>
 
   <div class="field">
@@ -20,7 +21,7 @@
           コメント
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :text, class:"movies-text", id:"movies-comment", placeholder:"コメント（必須 1,00文字まで記載可）" ,rows:"1" ,maxlength:"100",class:"textarea" %>
+        <%= f.text_area :text, class:"movies-text", id:"movies-comment", placeholder:"コメント（必須 1,00文字まで記載可）",maxlength:"100",class:"textarea" %>
       </div>
       <div class="weight-bold-text">
         楽器名

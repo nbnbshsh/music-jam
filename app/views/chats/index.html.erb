@@ -1,5 +1,8 @@
 
 <p>ダイレクトメッセージ相手 一覧</p>
+<% @u.each do |user|%>
+<%= user.nickname%>
+<% end %>
 
 <%# <% @rooms.each do |room| %>
 <%# <%= opponent_user(room)%>
