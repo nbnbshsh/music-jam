@@ -3,6 +3,7 @@
 <a class="follows_name"><%=@user.nickname%><span>さんのフォロワー一覧</span></a>
 </h1>
 </div>
+<%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
 
 <% @followers.each do |user| %>
 <div>
