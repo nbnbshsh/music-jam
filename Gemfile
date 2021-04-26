@@ -71,3 +71,7 @@ gem 'ransack'
 gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth', '~>1.9.1'
