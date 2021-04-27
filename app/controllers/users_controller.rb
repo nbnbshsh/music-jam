@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_action :edit_user,only: [:edit,:update]
+
   def show
     user = User.find(params[:id])
     @user=user
@@ -23,6 +25,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email,:password,:nickname,:instrument,:prefecture_id,:history_id,:gender_id,:age,:genre,:artist)
+  end
+
+  def edit_user
+    @user=User.find(params[:id])
+    if user_signed_in? && current_user.id != @user.id
+      redirect_to root_path
+    end
   end
 
 end

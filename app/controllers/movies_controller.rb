@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!,except: [:index,:show]
   before_action :search_movie, only: [:index,:search]
+  before_action :edit_movie, only:[:edit,:update,:destroy]
 
   def index
     @movies=Movie.all.order(created_at: :desc)
@@ -27,11 +29,9 @@ class MoviesController < ApplicationController
   end
 
   def edit
-     @movie=Movie.find(params[:id])
   end
 
   def update
-    @movie=Movie.find(params[:id])
      if @movie.update(update_params)
        redirect_to movie_path(@movie.id)
      else
@@ -40,7 +40,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie=Movie.find(params[:id])
     @movie.destroy
     redirect_to root_path
   end
@@ -61,6 +60,13 @@ class MoviesController < ApplicationController
 
   def update_params
     params.require(:movie).permit(:text,:instrument,:music,:artist).merge(user_id: current_user.id)
+  end
+
+  def edit_movie
+    @movie=Movie.find(params[:id])
+    if user_signed_in? && current_user.id != @movie.user_id
+      redirect_to root_path
+    end
   end
 
 
