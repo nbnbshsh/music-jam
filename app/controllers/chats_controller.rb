@@ -57,11 +57,11 @@ class ChatsController < ApplicationController
     d_array_nums=d.size
     e=[]
     d_array_nums.times do |d_array_num|
-      chat_user_names = d[d_array_num].nickname
-      e.push(chat_user_names)
+      dm_users = d[d_array_num]
+      e.push(dm_users)
     end
-    
-    @dm_user_names=e
+
+    @dm_chat_users=e
 
   end
 
