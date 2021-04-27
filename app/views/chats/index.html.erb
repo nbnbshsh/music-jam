@@ -1,8 +1,14 @@
+<h1 class="title-list">
+<p>ダイレクトメッセージ 相手一覧</p>
+</h1>
 
-<p>ダイレクトメッセージ相手 一覧</p>
-<% @u.each do |user|%>
-<%= user.nickname%>
+<%@dm_user_names.each do |dm_users_name| %>
+<div class="dm_user">
+<%= dm_users_name %>
+</div>
 <% end %>
+
+
 
 <%# <% @rooms.each do |room| %>
 <%# <%= opponent_user(room)%>
