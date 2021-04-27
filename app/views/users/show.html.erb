@@ -1,5 +1,5 @@
   <h1 class="title-list">
-  <%= @user.nickname%>さんの個人ページ
+  【<%= @user.nickname%>】さんの個人ページ
   </h1>
   
   <%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
@@ -67,7 +67,7 @@
 
 <div class="contents row">
   <div class="user_post_list">
-  <p><%= @user.nickname %>さんの投稿一覧</p>
+  <p>【<%= @user.nickname %>】さんの投稿一覧</p>
   </div>
   <% @movies.each do |movie| %>
     <%= render partial:"movies/movie",locals: {movie: movie}%>

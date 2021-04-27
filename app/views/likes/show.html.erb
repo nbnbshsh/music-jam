@@ -1,5 +1,5 @@
 <div class="like_lists">
-  <p><%= current_user.nickname%><span>さんのいいね一覧</span></p>
+  <p>【<%= current_user.nickname%>】<span>さんのいいね一覧</span></p>
 </div>
 
 <%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
@@ -10,7 +10,7 @@
 
     <span class="name">
       <a href="/users/<%= like.movie.user.id %>">
-        <span>投稿者</span><%= like.movie.user.nickname %>
+        <span>投稿者</span>【<%= like.movie.user.nickname %>】
       </a>
     </span>
 
