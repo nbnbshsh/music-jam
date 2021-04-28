@@ -34,3 +34,13 @@ h1.title-list {
   justify-content: center;
   margin:20px;
   }
+
+  .error-alert {
+    margin: 30px;
+    color: red;
+}
+
+div#error_explanation {
+  margin: 30px;
+  color: red;
+}

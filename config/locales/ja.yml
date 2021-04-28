@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        instrument: 楽器
+        prefecture_id: 都道府県
+        history_id: (楽器)歴
+        age: 年齢
+      movie:
+        text: コメント
+        video_top: 動画
+        instrument: 楽器
