@@ -51,3 +51,16 @@ p.likes_not {
   font-size: 20px;
   margin-top: 60px;
 }
+
+p.sign_in_info {
+  color: white;
+}
+
+a.button.google_btn {
+  background: dodgerblue;
+  color: white;
+}
+
+.google-signup {
+  margin: 10px 0;
+}

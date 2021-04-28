@@ -1,7 +1,7 @@
 <h1 class="title-list">
 <p>ダイレクトメッセージ 相手一覧</p>
 </h1>
-
+<%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
 <%@dm_chat_users.each do |dm_chat_user| %>
 <div class="dm_user">
 <a href="/users/<%= dm_chat_user.id%>/chat/<%= dm_chat_user.id %>"> 
