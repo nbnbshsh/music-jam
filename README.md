@@ -19,7 +19,8 @@
 has_many :movies
 has_many :directs
 has_many :comments
-has_many :user
+has_many :chats
+has_many :rooms
 
 ## moviesテーブル
 
@@ -40,12 +41,26 @@ has_many :likes
 
 |Column               |Type       |Options                        |
 |---------------------|-----------|-------------------------------|
-|message              |text       |null: false                    |
+|user                 |references |null: false, foreign_key: true |
 |user                 |references |null: false, foreign_key: true |
 
 
 ### Association
+has_many :chats
+has_many :user_rooms
+
+## chatsテーブル
+
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|message              |text       |null: false                    |
+|user                 |references |null: false, foreign_key: true |
+|room                 |references |null: false, foreign_key: true |
+
+
+### Association
 belongs_to :user
+belongs_to :room
 
 ## commentsテーブル
 
@@ -68,7 +83,7 @@ belongs_to :user
 
 
 ### Association
-belongs_to :movie
 belongs_to :user
+belongs_to :movie
 
 

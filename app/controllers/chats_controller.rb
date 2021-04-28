@@ -41,6 +41,7 @@ class ChatsController < ApplicationController
     b.push(chat_user)
     end
     
+    
     array_nums=b.size
     c=[]
     array_nums.times do |num|
@@ -54,14 +55,7 @@ class ChatsController < ApplicationController
     d.push(user)
     end
 
-    d_array_nums=d.size
-    e=[]
-    d_array_nums.times do |d_array_num|
-      dm_users = d[d_array_num]
-      e.push(dm_users)
-    end
-
-    @dm_chat_users=e
+    @dm_chat_users=d
 
   end
 
