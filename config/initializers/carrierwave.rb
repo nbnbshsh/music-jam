@@ -7,7 +7,7 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1'
     }
 
-    config.fog_directory  = 'rails-photo-123'
+    config.fog_directory  = 'rails-movie-1234'
     config.cache_storage = :fog
   end
 end
