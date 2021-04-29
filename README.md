@@ -17,10 +17,15 @@
 
 ### Association
 has_many :movies
-has_many :directs
 has_many :comments
 has_many :chats
-has_many :rooms
+has_many :rooms, through: :user_rooms
+has_many :likes, dependent: :destroy
+has_many :user_rooms
+has_many :active_relationships,class_name: 'Follow', foreign_key: 'user_id'
+has_many :passive_relationships,class_name: 'Follow', foreign_key: 'target_user_id'
+has_many :followings, through: :active_relationships,source: :target_user
+has_many :followers, through: :passive_relationships,source: :user
 
 ## moviesテーブル
 
@@ -41,13 +46,22 @@ has_many :likes
 
 |Column               |Type       |Options                        |
 |---------------------|-----------|-------------------------------|
-|user                 |references |null: false, foreign_key: true |
-|user                 |references |null: false, foreign_key: true |
 
 
 ### Association
 has_many :chats
 has_many :user_rooms
+
+## user_roomsテーブル
+
+|Column               |Type       |Options                        |
+|---------------------|-----------|-------------------------------|
+|room                 |references |null: false, foreign_key: true |
+|user                 |references |null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+belongs_to :room
 
 ## chatsテーブル
 
@@ -86,4 +100,14 @@ belongs_to :user
 belongs_to :user
 belongs_to :movie
 
+## followsテーブル
+
+|Column               |Type       |Options                         |
+|---------------------|-----------|--------------------------------|
+|user                 |references |null: false, foreign_key: true  |
+|target_user          |references |null: false, foreign_key: false |
+
+### Association
+belongs_to :user
+belongs_to :target_user, class_name: 'User',foreign_key: 'target_user_id'
 

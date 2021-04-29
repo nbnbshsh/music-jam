@@ -27,8 +27,8 @@ class User < ApplicationRecord
     has_many :rooms, through: :user_rooms
     has_many :active_relationships,class_name: 'Follow', foreign_key: 'user_id'
     has_many :passive_relationships,class_name: 'Follow', foreign_key: 'target_user_id'
-    has_many :followings, through: :active_relationships,source: :target_user
-    has_many :followers, through: :passive_relationships,source: :user
+    has_many :followings, through: :active_relationships, source: :target_user
+    has_many :followers, through: :passive_relationships, source: :user
     has_many :sns_credentials
 
       def already_liked?(movie)
