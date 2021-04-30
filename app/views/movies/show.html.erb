@@ -21,10 +21,10 @@
    <ul>
      <% if user_signed_in? && current_user.id == @movie.user_id %>
        <li>
-         <%= link_to '編集', edit_movie_path(@movie.id), method: :get, class: "button"%>
+         <%= link_to '編集', edit_movie_path(@movie.id), method: :get, class: "button edit_destroy"%>
        </li>
        <li> 
-         <%= link_to '削除', movie_path(@movie.id), method: :delete, class: "button"%> 
+         <%= link_to '削除', movie_path(@movie.id), method: :delete, class: "button edit_destroy"%> 
        </li>
      <% end %> 
    </ul>

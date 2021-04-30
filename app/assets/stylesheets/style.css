@@ -119,3 +119,16 @@ input#user_email {
 .field-cls {
   text-align: center;
 }
+
+a.button.edit_destroy {
+  margin: 10px;
+  box-shadow: 2px 2px black;
+  background-color: #23cec4;
+  color: white;
+}
+
+a.button.edit_destroy:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  
+}
