@@ -64,3 +64,19 @@ a.button.google_btn {
 .google-signup {
   margin: 10px 0;
 }
+
+.tabs a:hover {
+  border-bottom-color: white !important;
+  color: white !important;
+  background-color: lightseagreen;
+}
+
+a.jam_top:hover {
+  color: deepskyblue;
+}
+
+a.button:hover {
+  border-bottom-color: white !important;
+  color: white !important;
+  background-color: lightseagreen;
+}
