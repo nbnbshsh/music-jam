@@ -68,7 +68,7 @@ a.button.google_btn {
 .tabs a:hover {
   border-bottom-color: white !important;
   color: white !important;
-  background-color: lightseagreen;
+  background-color: #23cec4;
 }
 
 a.jam_top:hover {
@@ -78,5 +78,5 @@ a.jam_top:hover {
 a.button:hover {
   border-bottom-color: white !important;
   color: white !important;
-  background-color: lightseagreen;
+  background-color: #23cec4;
 }
