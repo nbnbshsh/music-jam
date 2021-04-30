@@ -9,7 +9,7 @@
             <%= form_with model: @chat,url: user_chats_path do |f| %>
               <%= f.text_field :message %>
               <%= f.hidden_field :room_id %>
-              <%= f.submit '送信'%>
+              <%= f.submit '送信', class:"submit-btn"%>
             <% end %>
 
             <table class="message table">

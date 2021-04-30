@@ -80,3 +80,42 @@ a.button:hover {
   color: white !important;
   background-color: #23cec4;
 }
+
+a.button.m-1.like:hover {
+    background-color: #f59fd3;
+}
+
+.detail {
+  justify-content: center;
+  display: flex;
+  margin: 10px;
+}
+
+a.button.detail {
+  width: 80px;
+  background-color: #6ca0efed;
+  color: white;
+  box-shadow: 2px 2px black;
+}
+
+a.button.detail:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+input.submit-btn {
+  padding: 3px 6px;
+  background: #57e49c;
+}
+
+input.button.is-primary:hover {
+  background-color: #59d2f7;
+}
+
+input#user_email {
+  width: 230px;
+}
+
+.field-cls {
+  text-align: center;
+}

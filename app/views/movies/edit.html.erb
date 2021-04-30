@@ -11,7 +11,7 @@
   <%= form_with model: @movie,url: movie_path, local: true do |f| %>
 
   <div class="field">
-      
+      <div class="field-cls">
         <div class="weight-bold-text">
           
           <span class="indispensable">コメント *必須</span>
@@ -39,10 +39,10 @@
     
 
   <div class="post-btn-contents">
-    <%= f.submit "投稿する" ,class:"post-btn" %>
-    <%=link_to 'もどる', root_path, class:"back-btn" %>
+    <%= f.submit "投稿する" ,class:"button is-primary m-4" %>
+    <%=link_to 'もどる', root_path, class:"button is-primary m-4" %>
   </div>
-
+   </div>
   </div>
 <% end %>
 

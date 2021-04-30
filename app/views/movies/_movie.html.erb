@@ -10,8 +10,9 @@
         <%= video_tag(movie.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
       </figure>
     </div>
-
-    <%= link_to '詳細', movie_path(movie.id), method: :get ,class:"button"%>
+     <div class="detail">
+    <%= link_to '詳細', movie_path(movie.id), method: :get ,class:"button detail"%>
+    </div>
     
     <div class=likes_class>
       <%if user_signed_in? %>

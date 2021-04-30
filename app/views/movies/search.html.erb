@@ -18,6 +18,10 @@
           <%= video_tag(result.video_top.to_s,class:"content_post", :loop => true, :autoplay => true, :muted => true) %>
         </figure>
       </div>
+
+      <div class="detail">
+    <%= link_to '詳細', movie_path(result), method: :get ,class:"button detail"%>
+    </div>
       <td>
 
       <div class=likes_class>
