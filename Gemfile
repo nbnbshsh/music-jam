@@ -81,3 +81,7 @@ gem 'rails-i18n'
 gem "aws-sdk-s3", require: false
 
 gem 'fog'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end

@@ -25,10 +25,10 @@
     <i class="far fa-heart"></i>
     <% end %>
   <%end%>
-  <%= movie.likes.count %>
+  <a id="like-count"><%= movie.likes.count %></a>
   <% else %>
       <i class="far fa-heart"></i>
-      <%= movie.likes.count %>
+      <a id="like-count"><%= movie.likes.count %></a>
     <%end%>
     </div>
     
