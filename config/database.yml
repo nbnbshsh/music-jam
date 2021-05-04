@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: music_jam_production
-  username: music_jam
-  password: <%= ENV['MUSIC_JAM_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
