@@ -46,7 +46,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :gender_id %><br />
+    <%= f.label :gender_id %><a>(任意)</a><br />
     <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"user-gender"}) %>
   </div>
   
@@ -56,12 +56,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :genre %><br />
+    <%= f.label :genre %><a>(任意)</a><br />
     <%= f.text_area :genre, autocomplete: "genre" %>
   </div>
 
   <div class="field">
-    <%= f.label :artist %><br />
+    <%= f.label :artist %><a>(任意)</a><br />
     <%= f.text_area :artist, autocomplete: "artist" %>
   </div>
 

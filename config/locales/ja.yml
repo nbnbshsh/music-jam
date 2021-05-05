@@ -6,7 +6,10 @@ ja:
         instrument: 楽器
         prefecture_id: 都道府県
         history_id: (楽器)歴
+        gender_id: 性別
         age: 年齢
+        genre: 好きなジャンル
+        artist: 好きなアーティスト
       movie:
         text: コメント
         video_top: 動画
