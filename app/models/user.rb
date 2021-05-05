@@ -9,10 +9,10 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :instrument
-    validates :prefecture_id,numericality: { other_than: 0 }
-    validates :history_id,numericality: { other_than: 0 }
-    validates :age, format:{with: /\A[0-9]+\z/,message:'半角数字のみで入力してください'}
-    validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/, message: '全て半角で英数字を混ぜて設定してください' }
+    validates :prefecture_id,numericality: { other_than: 0,message: 'を選択してください' }
+    validates :history_id,numericality: { other_than: 0,message: 'を選択してください' }
+    validates :age, format:{with: /\A[0-9]+\z/,message:'を半角数字のみで入力してください'}
+    validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/, message: 'を全て半角で英数字を混ぜて設定してください' }
   end
     
     has_many :movies

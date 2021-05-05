@@ -31,43 +31,43 @@ RSpec.describe User, type: :model do
     it 'nicknameが空欄の時' do
       @user.nickname=""
       @user.valid?
-      expect(@user.errors.full_messages).to include("Nickname can't be blank")
+      expect(@user.errors.full_messages).to include("ニックネームを入力してください")
     end
 
     it 'instrumentが空欄の時' do
       @user.instrument=""
       @user.valid?
-      expect(@user.errors.full_messages).to include("Instrument can't be blank")
+      expect(@user.errors.full_messages).to include("楽器を入力してください")
     end
 
     it 'prefecture_idが未選択の時' do
       @user.prefecture_id=0
       @user.valid?
-      expect(@user.errors.full_messages).to include("Prefecture must be other than 0")
+      expect(@user.errors.full_messages).to include("都道府県を選択してください")
     end
 
     it 'history_idが未選択の時' do
       @user.history_id=0
       @user.valid?
-      expect(@user.errors.full_messages).to include("History must be other than 0")
+      expect(@user.errors.full_messages).to include("(楽器)歴を選択してください")
     end
 
     it 'ageが未記入の時' do
       @user.age=""
       @user.valid?
-      expect(@user.errors.full_messages).to include("Age can't be blank")
+      expect(@user.errors.full_messages).to include("年齢を入力してください", "年齢を半角数字のみで入力してください")
     end
     
     it 'ageが数字以外の時' do
       @user.age="aaa"
       @user.valid?
-      expect(@user.errors.full_messages).to include("Age 半角数字のみで入力してください")
+      expect(@user.errors.full_messages).to include("年齢を半角数字のみで入力してください")
     end
 
     it 'ageが全角数字の時' do
       @user.age="１２"
       @user.valid?
-      expect(@user.errors.full_messages).to include("Age 半角数字のみで入力してください")
+      expect(@user.errors.full_messages).to include("年齢を半角数字のみで入力してください")
     end
 
 
