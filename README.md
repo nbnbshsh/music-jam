@@ -20,8 +20,9 @@ http://18.182.188.122/
 
 # DEMO
 ## トップページ
-https://i.gyazo.com/7930f90899a5ee69c9237b6a02f234c5.jpg
-https://i.gyazo.com/bc87b56b241375b4b59d4f5d5cdde865.jpg
+![530514062c70de618557e01cef396883](https://user-images.githubusercontent.com/80822571/117639142-8fd5fb00-b1be-11eb-840c-82f16c436f9c.jpg)
+![16b9c0c88a91db4b54472d9972a1b566](https://user-images.githubusercontent.com/80822571/117639042-73d25980-b1be-11eb-9985-e9d0a7f90b5a.jpg)
+
 
 全ユーザーの投稿が投稿順に表示される。未ログイン時は検索もしくは投稿の詳細の閲覧のみが可能。ログインするとその他様々な機能が使用可能。
 ## ユーザー登録画面
@@ -30,7 +31,7 @@ https://i.gyazo.com/67d96e25a02d9c0bcf61412de5d19f2d.jpg
 ユーザーのログインに必要な情報及び個人の情報を記入し、登録が必要。
 必須項目に記入がない場合はエラーメッセージが日本語で出力され、記入を促される。
 ## 投稿画面
-https://i.gyazo.com/0bf6d35dae372789869107973e68ce0a.jpg
+![f33ea2453b8a4cc66c44ee91c168f265](https://user-images.githubusercontent.com/80822571/117640107-a6c91d00-b1bf-11eb-8b6d-c8934fff06fc.jpg)
 
 ログイン状態であれば、投稿が可能。必須項目の記入（動画も含め）がないとエラーメッセージが出力され、投稿ができない。また画像の投稿もできない。投稿が完了するとトップページに遷移する。
 ## 投稿詳細画面・コメント機能
@@ -42,7 +43,7 @@ https://i.gyazo.com/c5154525e6ef111a5468ce67bfb0431b.jpg
 
 自身が投稿した内容の編集が可能。動画の編集は不可。
 ## ユーザー詳細画面
-https://i.gyazo.com/05ef3366177d39a65a3431358331a68c.jpg
+<img width="701" alt="a137a8423bec0efbe7d07bb2f364cfad" src="https://user-images.githubusercontent.com/80822571/117639615-1094f700-b1bf-11eb-8010-0f3bc2ccebf1.png">
 
 ユーザーの詳細画面ではユーザーの詳細情報とそのユーザーの投稿が一覧となっている。またその画面からそのユーザーへDMを送信することが可能。
 ## ユーザー情報編集画面
@@ -58,7 +59,7 @@ https://i.gyazo.com/277c53de9706a2f0c0627fba163f23d7.jpg
 
 トップページの右下検索から楽器で検索し、検索結果の一覧投稿が閲覧可能。
 ## DM画面(ダイレクトメッセージ)
-https://i.gyazo.com/cc1cd21da001eccc393586073a4e3cb5.jpg
+<img width="992" alt="75ba3d38565677dc176b52e88dd9549e" src="https://user-images.githubusercontent.com/80822571/117639577-070b8f00-b1bf-11eb-894a-904bdc79a663.png">
 
 任意の相手とDMのやりとりが可能。
 ## DM相手一覧画面
