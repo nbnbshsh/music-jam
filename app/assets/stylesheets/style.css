@@ -132,3 +132,10 @@ a.button.edit_destroy:hover {
   box-shadow: none;
   
 }
+
+.follows-count {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}

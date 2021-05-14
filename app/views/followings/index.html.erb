@@ -4,7 +4,9 @@
 </h1>
 </div>
 <%= link_to 'ホームに戻る', root_path, class:"button home_return" %>
-
+<div class="follows-count">
+<span>フォロー数：</span><%=@user.followings.count%>
+</div>
 <% @followings.each do |user| %>
 <div>
   <%= link_to user.nickname, [user],class:"follows_name_class" %>
